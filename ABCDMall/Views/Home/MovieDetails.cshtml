@@ -1,0 +1,12 @@
+﻿@model ABCDMall.Models.Movie
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+<p>@Model.Description</p>
+<p><strong>Show Time:</strong> @Model.ShowTime.ToString("g")</p>
+<p><strong>Available Seats:</strong> @Model.AvailableSeats</p>
+
+<a href="@Url.Action("BookTicket", new { id = Model.Id })" class="btn btn-primary">Book Now</a>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ABCDMall.Models.Shops>
+
+@{
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Manage Shops";
+}
+
+<h2>Manage Shops</h2>
+
+<a asp-controller="Admin" asp-action="AddShop" class="btn btn-primary">Add New Shop</a>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedAt)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var shop in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => shop.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => shop.Description)
+                </td>
+                <td>
+                    <img src="@shop.ImageUrl" alt="@shop.Name" style="width:100px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => shop.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => shop.UpdatedAt)
+                </td>
+                <td>
+                    <a asp-controller="Admin" asp-action="EditShop" asp-route-id="@shop.Id" class="btn btn-warning mt-3">Edit</a> |
+                    <a asp-controller="Admin" asp-action="DeleteShop" asp-route-id="@shop.Id" class="btn btn-danger mt-3">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

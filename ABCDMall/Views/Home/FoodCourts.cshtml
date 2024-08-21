@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ABCDMall.Models.FoodCourt>
+
+@{
+    ViewData["Title"] = "Food Courts";
+}
+
+<h2 >Our Food Courts</h2>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Menu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var foodCourt in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@foodCourt.ImageUrl" alt="@foodCourt.Name" style="width: 100px; height: auto;" />
+                </td>
+                <td>@Html.ActionLink(foodCourt.Name, "FoodCourtDetails", new { id = foodCourt.Id })</td>
+                <td>@foodCourt.Description</td>
+                <td>
+                    <img src="@foodCourt.MenuImageUrl" alt="Menu for @foodCourt.Name" style="width: 100px; height: auto;" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

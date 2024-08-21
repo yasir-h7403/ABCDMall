@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ABCDMall.Models.Shops>
+
+@{
+    ViewData["Title"] = "Shops";
+}
+
+<h2>Our Shops</h2>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var shop in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@shop.ImageUrl" alt="@shop.Name" style="width: 100px; height: auto;" />
+                </td>
+                <td>@Html.ActionLink(shop.Name, "ShopDetails", new { id = shop.Id })</td>
+                <td>@shop.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>

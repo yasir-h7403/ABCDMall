@@ -1,0 +1,16 @@
+﻿ @{
+     Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Admin Dashboard";
+ }
+
+<h2>Admin Dashboard</h2>
+
+<ul>
+    <li><a asp-controller="Admin" asp-action="ManageShops" class="btn btn-primary mt-3">Manage Shops</a></li>
+    <li><a asp-controller="Admin" asp-action="ManageFoodCourts" class="btn btn-primary mt-3">Manage Food Courts</a></li>
+    <li><a asp-controller="Admin" asp-action="ManageMovies" class="btn btn-primary mt-3">Manage Movies</a></li>
+    <li><a asp-controller="Admin" asp-action="ManageGallery" class="btn btn-primary mt-3">Manage Gallery</a></li>
+    <li><a asp-controller="Admin" asp-action="ViewFeedback" class="btn btn-primary mt-3">View Feedback</a></li>
+    <li><a asp-controller="Admin" asp-action="ViewBookedTickets" class="btn btn-primary mt-3">View Booked Tickets</a></li>
+</ul>
+ 

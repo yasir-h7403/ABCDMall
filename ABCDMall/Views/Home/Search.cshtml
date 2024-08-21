@@ -1,0 +1,37 @@
+﻿@model ABCDMall.ViewModels.SearchViewModel
+
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<h2>Search Results</h2>
+
+<h3>Shops</h3>
+@if (Model.Shops.Any())
+{
+    <ul>
+        @foreach (var shop in Model.Shops)
+        {
+            <li>@Html.ActionLink(shop.Name, "ShopDetails", new { id = shop.Id })</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No shops found.</p>
+}
+
+<h3>Food Courts</h3>
+@if (Model.FoodCourts.Any())
+{
+    <ul>
+        @foreach (var foodCourt in Model.FoodCourts)
+        {
+            <li>@Html.ActionLink(foodCourt.Name, "FoodCourtDetails", new { id = foodCourt.Id })</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No food courts found.</p>
+}

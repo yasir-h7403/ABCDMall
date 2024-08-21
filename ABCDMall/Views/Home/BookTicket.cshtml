@@ -1,0 +1,38 @@
+﻿@model ABCDMall.Models.Ticket
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Ticket</title>
+</head>
+<body>
+    <h1>Book a Ticket</h1>
+
+    @if (Model?.Movie != null)
+    {
+        <p>Movie Title: @Model.Movie.Title</p>
+        <p>Movie Description: @Model.Movie.Description</p>
+        <p>Available Seats: @Model.Movie.AvailableSeats</p>
+
+        <form asp-action="BookTicket" method="post">
+            <!-- Hidden input for MovieId -->
+            <input type="hidden" asp-for="MovieId" />
+
+            <!-- Input for UserName -->
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" />
+
+            <!-- Input for CardDetails -->
+            <label asp-for="CardDetails"></label>
+            <input asp-for="CardDetails" />
+
+            <!-- Submit button -->
+            <button type="submit">Book Now</button>
+        </form>
+    }
+    else
+    {
+        <p>Movie not found.</p>
+    }
+</body>
+</html>

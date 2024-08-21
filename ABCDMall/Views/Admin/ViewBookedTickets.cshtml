@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Ticket>
+
+@{
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "View Booked Tickets";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Movie Title</th>
+            <th>User Name</th>
+            <th>Card Details</th>
+            <th>Booking Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            <tr>
+                <td>@ticket.Movie?.Title</td>
+                <td>@ticket.UserName</td>
+                <td>@ticket.CardDetails</td>
+                <td>@ticket.BookingTimeCreatedAt.ToString("t")</td>
+                <td>@ticket.BookingTimeUpdatedAt.ToString("t")</td>
+            </tr>
+        }
+    </tbody>
+</table>

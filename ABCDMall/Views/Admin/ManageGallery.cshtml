@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Gallery>
+
+@{
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Manage Gallery";
+}
+
+<h2>Manage Gallery</h2>
+
+<a asp-controller="Admin" asp-action="AddImage" class="btn btn-primary">Add New Image</a>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var image in Model)
+        {
+            <tr>
+                <td>
+                    @image.Name
+                </td>
+                <td>
+                    <img src="@image.ImageUrl" alt="@image.Description" width="100" />
+                </td>
+                <td>
+                    @image.Description
+                </td>
+                <td>
+                    <a asp-controller="Admin" asp-action="EditImage" asp-route-id="@image.Id" class="btn btn-warning mt-3">Edit</a>
+                    <a asp-controller="Admin" asp-action="DeleteImage" asp-route-id="@image.Id" class="btn btn-danger mt-3">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

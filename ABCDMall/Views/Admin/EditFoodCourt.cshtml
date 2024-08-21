@@ -1,0 +1,38 @@
+﻿@model ABCDMall.Models.FoodCourt
+
+@{
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Edit Food Court";
+}
+
+<h1>Edit Food Court</h1>
+
+<form asp-action="EditFoodCourt" method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="Id" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl" class="control-label"></label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MenuImageUrl" class="control-label"></label>
+        <input asp-for="MenuImageUrl" class="form-control" />
+        <span asp-validation-for="MenuImageUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary mt-3" />
+        <a asp-action="ManageFoodCourts" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+</form>

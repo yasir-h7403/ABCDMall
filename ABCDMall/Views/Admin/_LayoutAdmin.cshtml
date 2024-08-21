@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>@ViewData["Title"] - ABCDMall</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/assets/img/Logo.jpg" rel="icon">
+    <link href="~/assets/img/Logo.jpg" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: NiceAdmin
+    * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+    * Updated: Apr 20 2024 with Bootstrap v5.3.3
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center">
+                <img src="~/assets/img/Logo.jpg" alt="">
+                <span class="d-none d-lg-block">ABCD Admin</span>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
+
+        
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                
+
+
+                <li class="nav-item dropdown pe-3">
+
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <img src="~/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    </a>
+                    <!-- End Profile Iamge Icon -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li class="dropdown-header">
+                            <h6>Kevin Anderson</h6>
+                            <span>Web Designer</span>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                                <i class="bi bi-person"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                                <i class="bi bi-gear"></i>
+                                <span>Account Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                                <i class="bi bi-question-circle"></i>
+                                <span>Need Help?</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a asp-controller="Admin" asp-action="Logout" class="dropdown-item d-flex align-items-center">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Sign Out</span>
+                            </a>
+                        </li>
+
+                    </ul><!-- End Profile Dropdown Items -->
+                </li><!-- End Profile Nav -->
+
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+    <!-- ======= Sidebar ======= -->
+
+    <div class="container">
+        <main role="main" class="pb-3">
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a asp-controller="Admin" asp-action="Index" class="nav-link ">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <!-- End Dashboard Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#shops-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>Shops</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="shops-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                            <li><a asp-controller="Admin" asp-action="ManageShops">Manage Shops</a></li> 
+                </ul>
+            </li>
+            <!-- End Shops Nav -->
+
+            <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#FoodCourts-nav" data-bs-toggle="collapse" href="FoodCourts">
+                            <i class="bi bi-journal-text"></i><span>Food Courts</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                        <ul id="FoodCourts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li><a asp-controller="Admin" asp-action="ManageFoodCourts">Manage Food Courts</a></li>
+                </ul>
+            </li>
+            <!-- End Movies Nav -->
+
+            <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#Movies-nav" data-bs-toggle="collapse" href="Movies">
+                            <i class="bi bi-layout-text-window-reverse"></i><span>Movies</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                        <ul id="Movies-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li><a asp-controller="Admin" asp-action="ManageMovies">Manage Movies</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#Gallery-nav" data-bs-toggle="collapse" href="Gallery">
+                            <i class="bi bi-layout-text-window-reverse"></i><span>Gallery</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                        <ul id="Gallery-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li><a asp-controller="Admin" asp-action="ManageGallery">Manage Gallery</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#ViewFeedback-nav" data-bs-toggle="collapse" href="ViewFeedback">
+                            <i class="bi bi-layout-text-window-reverse"></i><span>Feedback</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                        <ul id="ViewFeedback-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li><a asp-controller="Admin" asp-action="ViewFeedback">View Feedback</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                        <a class="nav-link collapsed" data-bs-target="#ViewBookedTickets-nav" data-bs-toggle="collapse" href="ViewBookedTickets">
+                            <i class="bi bi-layout-text-window-reverse"></i><span>Booked Tickets</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="ViewBookedTickets-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li><a asp-controller="Admin" asp-action="ViewBookedTickets">View Booked Tickets</a></li>
+                </ul>
+            </li>
+            <!-- End Tables Nav -->
+
+            <li class="nav-item">
+                        <a asp-controller="Admin" asp-action="Login" class="nav-link collapsed">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <span>Login</span>
+                </a>
+            </li><!-- End Login Page Nav -->
+        </ul>
+
+    </aside><!-- End Sidebar-->
+
+    </main>
+    </div>
+
+        <main id="main" class="main">
+            @RenderBody()
+        </main>
+        
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer pt-5">
+        <div class="copyright">
+            &copy; Copyright <strong><span>ABCD Admin</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Designed by ABCD Mall
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="~/assets/vendor/echarts/echarts.min.js"></script>
+    <script src="~/assets/vendor/quill/quill.js"></script>
+    <script src="~/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

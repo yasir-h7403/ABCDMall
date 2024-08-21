@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ABCDMall.Models.Gallery>
+
+@{
+    ViewData["Title"] = "Gallery";
+}
+
+<h2>Gallery</h2>
+
+<div class="row">
+    @foreach (var gallery in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="@gallery.ImageUrl" class="card-img-top" alt="@gallery.Name" />
+                <div class="card-body">
+                    <h5 class="card-title">@gallery.Name</h5>
+                    <p class="card-text">@gallery.Description</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

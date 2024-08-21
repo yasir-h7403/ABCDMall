@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ABCDMall.Models.Movie>
+
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<h2>Movies in Theatres</h2>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Poster</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Show Time</th>
+            <th>Available Seats</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@movie.ImageUrl" alt="@movie.Title" style="width: 100px; height: auto;" />
+                </td>
+                <td>@Html.ActionLink(movie.Title, "MovieDetails", new { id = movie.Id })</td>
+                <td>@movie.Description</td>
+                <td>@movie.ShowTime.ToString("g")</td>
+                <td>@movie.AvailableSeats</td>
+            </tr>
+        }
+    </tbody>
+</table>

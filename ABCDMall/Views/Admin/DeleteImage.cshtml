@@ -1,0 +1,26 @@
+﻿@model ABCDMall.Models.Gallery
+@{
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Delete Gallery";
+
+    }
+
+<h2>Delete Image</h2>
+
+<form asp-action="DeleteImage" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl"></label>
+        <input asp-for="ImageUrl" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" readonly />
+    </div>
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger mt-3">Delete</button>
+    <a asp-action="ManageGallery" class="btn btn-secondary mt-3">Cancel</a>
+</form>

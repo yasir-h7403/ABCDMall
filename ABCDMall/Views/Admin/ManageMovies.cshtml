@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ABCDMall.Models.Movie>
+
+@{
+    Layout = "~/Views/Admin/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "ManageMovies";
+}
+
+<h1>Manage Movies</h1>
+
+<p>
+    <a asp-controller="Admin" asp-action="AddMovie" class="btn btn-primary">Add New Movie</a>
+</p>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().TotalSeats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().AvailableSeats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().ShowTime)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => movie.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => movie.Description)
+                </td>
+                <td>
+                    <img src="@movie.ImageUrl" alt="@movie.Title" style="width:100px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => movie.TotalSeats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => movie.AvailableSeats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => movie.ShowTime)
+                </td>
+                <td>
+                    <a asp-controller="Admin" asp-action="EditMovie" asp-route-id="@movie.Id" class="btn btn-warning mt-3">Edit</a>
+                    <a asp-controller="Admin" asp-action="DeleteMovie" asp-route-id="@movie.Id" class="btn btn-danger mt-3">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
